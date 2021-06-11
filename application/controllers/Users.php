@@ -8,6 +8,10 @@ class Users extends CI_Controller
         // menjalankan method ketika class Auth dijalankan
         parent::__construct();
         $this->load->library('form_validation');
+
+        if ($this->session->userdata('userlogin')) {
+            redirect('Admin');
+        }
     }
 
     public function index()

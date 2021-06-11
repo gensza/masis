@@ -11,13 +11,13 @@ class DataPeminjaman extends CI_Controller
         $this->load->library('form_validation');
 
         //for SSO
-        // if (!$this->session->userdata('userlogin')) {
-        //     redirect('http://mips.msalgroup.com/msal-login/');
-        // }
-
-        if (!$this->session->userdata('username')) {
-            redirect('Auth');
+        if (!$this->session->userdata('userlogin')) {
+            redirect('http://mips.msalgroup.com/msal-login/');
         }
+
+        // if (!$this->session->userdata('username')) {
+        //     redirect('Auth');
+        // }
 
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
     }
