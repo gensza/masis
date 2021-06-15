@@ -30,7 +30,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-3">
-                                            <label for="">Kode Asset</label>
+                                            <label for="">Kode Asset*</label>
                                             <input type="text" class="form-control" id="kode_asset" name="kode_asset" value="<?= $a['kode_assets'] ?>" placeholder="Kode Asset" required>
                                         </div>
                                         <div class="form-group col-2">
@@ -62,7 +62,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group mb-1 col-3">
-                                            <label for="">Divisi</label>
+                                            <label for="">Divisi*</label>
                                             <select name="divisi" id="divisi" class="form-control" required>
                                                 <option value="<?= $a['id_divisi'] ?>" selected><?= $a['id_divisi'] ?>
                                             </select>
@@ -271,6 +271,9 @@
                             if (data[i].id_divisi == id_divisi) {
                                 html += '<option value=' + data[i].id_divisi + ' selected>' + data[i].nama_divisi + '</option>';
                             } else {
+                                if (i == 0) {
+                                    html += "<option value=''>Pilih Divisi</option>";
+                                }
                                 html += '<option value=' + data[i].id_divisi + '>' + data[i].nama_divisi + '</option>';
                             }
                         }

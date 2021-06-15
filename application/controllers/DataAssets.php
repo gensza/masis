@@ -65,7 +65,7 @@ class DataAssets extends CI_Controller
         $data['title'] = 'Input Assets';
 
         $sess_user = $this->session->userdata('id_pt');
-        $data['pt'] = $this->db->get_where('tb_pt', ['id_pt' => $sess_user])->result_array();
+        $data['pt'] = $this->db->get_where('tb_pt', ['id_pt' => 1])->result_array();
         $data['category'] = $this->db->get('tb_qty_assets')->result_array();
 
         $this->load->view('templates/header', $data);
@@ -84,8 +84,8 @@ class DataAssets extends CI_Controller
 
     public function select_get_pt()
     {
-        $data = $this->db->get('tb_pt')->result_array();
-
+        // $data = $this->db->get('tb_pt')->result_array();
+        $data = $this->db->get_where('tb_pt', ['id_pt' => 1])->result_array();
         echo json_encode($data);
     }
 
@@ -197,7 +197,8 @@ class DataAssets extends CI_Controller
 
     public function editAssets($id)
     {
-        $data['pt'] = $this->db->get('tb_pt')->result_array();
+        // $data['pt'] = $this->db->get('tb_pt')->result_array();
+        $data['pt'] = $this->db->get_where('tb_pt', ['id_pt' => 1])->result_array();
 
         $data['title'] = 'Edit Assets';
         $data['category'] = $this->db->get('tb_qty_assets')->result_array();
