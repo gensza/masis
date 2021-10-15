@@ -330,7 +330,7 @@
                 "serverSide": true,
                 "order": [],
 
-                "scrollY": 400,
+                // "scrollY": 400,
                 "scrollX": true,
 
                 "ajax": {

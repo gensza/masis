@@ -264,7 +264,7 @@
                     $('#merk_monitor, #sn_monitor, #merk_keyboard, #sn_keyboard, #merk_mouse, #sn_mouse').val('');
 
                     console.log(id_qty);
-                    if (id_qty == 18) {
+                    if (id_qty == 18 || id_qty == 26) {
                         $('.form_mokeymo').find('#merk_monitor, #sn_monitor, #merk_keyboard,#sn_keyboard, #merk_mouse, #sn_mouse').removeClass('bg-light');
                         $('.form_mokeymo').find('#merk_monitor, #sn_monitor, #merk_keyboard,#sn_keyboard, #merk_mouse, #sn_mouse').removeAttr('disabled', '');
                     } else {
