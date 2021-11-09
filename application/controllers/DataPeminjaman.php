@@ -12,7 +12,7 @@ class DataPeminjaman extends CI_Controller
 
         //for SSO
         if (!$this->session->userdata('userlogin')) {
-            redirect('http://mips.msalgroup.com/msal-login/');
+            redirect('https://mips.msalgroup.com/msal-login/');
         }
 
         // if (!$this->session->userdata('username')) {

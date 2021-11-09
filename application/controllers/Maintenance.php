@@ -13,7 +13,7 @@ class Maintenance extends CI_Controller
             $this->load->model('M_data_assets_maintenance');
 
             if (!$this->session->userdata('userlogin')) {
-                  redirect('http://mips.msalgroup.com/msal-login/');
+                  redirect('https://mips.msalgroup.com/msal-login/');
             }
 
             // if (!$this->session->userdata('username')) {

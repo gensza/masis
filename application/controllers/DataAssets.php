@@ -13,7 +13,7 @@ class DataAssets extends CI_Controller
 
         // FOR SSO
         if (!$this->session->userdata('userlogin')) {
-            redirect('http://mips.msalgroup.com/msal-login/');
+            redirect('https://mips.msalgroup.com/msal-login/');
         }
 
         // if (!$this->session->userdata('username')) {

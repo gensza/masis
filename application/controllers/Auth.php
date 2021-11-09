@@ -10,7 +10,7 @@ class Auth extends CI_Controller
 		$this->load->library('form_validation');
 
 		if (!$this->session->userdata('userlogin')) {
-			redirect('http://mips.msalgroup.com/msal-login/');
+			redirect('https://mips.msalgroup.com/msal-login/');
 		}
 	}
 

@@ -14,7 +14,7 @@ class DataUsers extends CI_Controller
         // }
 
         if (!$this->session->userdata('userlogin')) {
-            redirect('http://mips.msalgroup.com/msal-login/');
+            redirect('https://mips.msalgroup.com/msal-login/');
         }
     }
 
