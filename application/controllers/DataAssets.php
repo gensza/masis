@@ -434,6 +434,8 @@ class DataAssets extends CI_Controller
             //status
             if ($field->kondisi == 1 and $field->status_unit == 1) {
                 $status = '<p style="color: green;"><b>Tersedia!</b></p>';
+            } else if ($field->kondisi == 2) {
+                $status = '<p style="color: gray;"><b>Pemutihan</b></p>';
             } else if ($field->kondisi == 0) {
                 $status = '<p style="color: red;"><b>Rusak</b></p>';
             } else {

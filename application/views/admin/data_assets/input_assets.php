@@ -157,8 +157,9 @@
                                         <label for="">Kondisi*</label>
                                         <select name="kondisi" id="kondisi" class="form-control" required>
                                             <option value="" selected disabled>- Select kondisi - </option>
-                                            <option value="1">Baik</option>
                                             <option value="0">Rusak</option>
+                                            <option value="1">Baik</option>
+                                            <option value="2">Pemutihan</option>
                                         </select>
                                     </div>
                                     <div class="form-group mt-2 col-4">

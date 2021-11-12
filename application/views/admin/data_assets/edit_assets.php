@@ -162,6 +162,10 @@
                                                 ?>
                                                     <option value="1" selected>Baik</option>
                                                 <?php
+                                                } elseif ($a['kondisi'] == 2) {
+                                                ?>
+                                                    <option value="2" selected>Pemutihan</option>
+                                                <?php
                                                 } else {
                                                 ?>
                                                     <option value="0" selected>Rusak</option>
@@ -169,8 +173,9 @@
                                                 }
                                                 ?>
                                                 <option disabled></option>
-                                                <option value="1">Baik</option>
                                                 <option value="0">Rusak</option>
+                                                <option value="1">Baik</option>
+                                                <option value="2">Pemutihan</option>
                                             </select>
                                         </div>
                                         <div class="form-group mt-2 col-4">
