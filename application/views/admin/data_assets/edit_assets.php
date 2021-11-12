@@ -317,7 +317,7 @@
 
                     $('#no_ba').val('');
 
-                    if (kondisi == 0) {
+                    if (kondisi == 0 || kondisi == 2) {
                         $('.sikon').find('#no_ba').removeClass('bg-light');
                         $('.sikon').find('#no_ba').removeAttr('disabled', '');
                     } else {
