@@ -7,7 +7,7 @@ $date_today = date('Y-m-d');
         <!--- Sidemenu -->
         <div id="sidebar-menu">
             <ul id="side-menu">
-                <?php if ($this->session->userdata('userlogin')) { ?>
+                <?php if ($this->session->userdata('username')) { ?>
                     <li class="menu-title">Admin</li>
                     <li>
                         <a href="<?= base_url('Admin') ?>">
@@ -74,7 +74,7 @@ $date_today = date('Y-m-d');
                         </a>
                     </li>
                 <?php } ?>
-                <?php if (!$this->session->userdata('userlogin')) { ?>
+                <?php if (!$this->session->userdata('username')) { ?>
                     <li class="menu-title">Users</li>
                     <li>
                         <a href="<?= base_url('Auth') ?>">
@@ -100,3 +100,4 @@ $date_today = date('Y-m-d');
 
 <!-- // menjalankan scrip js -->
 <script src="<?= base_url() ?>/assets/js/vendor.min.js"></script>
+<script src="<?= base_url() ?>/assets/js/select2.min.js"></script>

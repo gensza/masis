@@ -30,7 +30,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-2 col-md-6">
-                                            <select class="custom-select" id="status-select" name="id_user">
+                                            <select class="custom-select" id="user" name="id_user">
                                                 <option selected disabled>Select name</option>
                                                 <?php foreach ($users_ho as $u) : ?>
                                                     <option value="<?= $u['nama'] ?>"><?= $u['nama'] ?></option>
@@ -52,6 +52,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </form>
                             <div class="row ml-2 mt-2" style="line-height: 0;">
                                 <p class="text-muted">Stok Tersedia : &nbsp;</p>
@@ -86,7 +87,7 @@
                                     <?php $no = 1  ?>
                                     <?php foreach ($assets as $a) : ?>
                                         <?php
-                                        if ($a['apprvd_y_dept'] == 1 and $a['apprvd_mis_dept'] == 1 and $a['lend_status'] == 0 or $a['lend_status'] == 3) {
+                                        if ($a['apprvd_y_dept'] == 0 and $a['apprvd_mis_dept'] == 0 and $a['lend_status'] == 3) {
                                         } else {
                                         ?>
                                             <tr>
@@ -120,6 +121,12 @@
                                                     ?>
                                                         <button type="button" class="btn btn-danger waves-effect waves-light">
                                                             <span class="btn-label"><i class="mdi mdi-close-circle-outline"></i></span>Rejected
+                                                        </button>
+                                                    <?php
+                                                    } elseif ($a['apprvd_y_dept'] == 1 and $a['apprvd_mis_dept'] == 1 and $a['lend_status'] == 0) {
+                                                    ?>
+                                                        <button type="button" class="btn btn-secondary waves-effect waves-light">
+                                                            <span class="btn-label"><i class="mdi mdi-close-circle-outline"></i></span>Dikembalikan
                                                         </button>
                                                     <?php
                                                     }
@@ -197,3 +204,9 @@
             <!-- end row -->
         </div> <!-- container -->
     </div> <!-- content -->
+
+    <script>
+        $("#user").select2({
+            tags: true
+        });
+    </script>

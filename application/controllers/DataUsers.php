@@ -9,13 +9,13 @@ class DataUsers extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
 
-        // if (!$this->session->userdata('username')) {
-        //     redirect('Auth');
-        // }
-
-        if (!$this->session->userdata('userlogin')) {
-            redirect('https://mips.msalgroup.com/msal-login/');
+        if (!$this->session->userdata('username')) {
+            redirect('Auth');
         }
+
+        // if (!$this->session->userdata('userlogin')) {
+        //     redirect('https://mips.msalgroup.com/msal-login/');
+        // }
     }
 
     public function index()

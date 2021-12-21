@@ -9,13 +9,13 @@ class Admin extends CI_Controller
         parent::__construct();
 
         // FOR SSO
-        if (!$this->session->userdata('userlogin')) {
-            redirect('https://mips.msalgroup.com/msal-login/');
-        }
-
-        // if (!$this->session->userdata('username')) {
-        //     redirect('Auth');
+        // if (!$this->session->userdata('userlogin')) {
+        //     redirect('https://mips.msalgroup.com/msal-login/');
         // }
+
+        if (!$this->session->userdata('username')) {
+            redirect('Auth');
+        }
     }
 
     public function index()

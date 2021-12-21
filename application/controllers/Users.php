@@ -9,7 +9,7 @@ class Users extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
 
-        if ($this->session->userdata('userlogin')) {
+        if ($this->session->userdata('username')) {
             redirect('Admin');
         }
     }
@@ -24,6 +24,7 @@ class Users extends CI_Controller
         $this->db->join('tb_assets', 'tb_assets.id_assets = tb_lend_assets.assets_id', 'left');
         // $this->db->join('tb_users', 'tb_users.id_users = tb_lend_assets.users_id', 'left');
         $this->db->join('tb_qty_assets', 'tb_qty_assets.id_qty = tb_lend_assets.qty_id', 'left');
+        $this->db->order_by('lend_status', 'DESC');
         $this->db->order_by('id_lend', 'DESC');
         $data['assets'] = $this->db->get()->result_array();
         $data['users_ho'] = $db2->get('user_ho')->result_array();
