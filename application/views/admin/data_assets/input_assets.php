@@ -31,24 +31,15 @@
                                         <label for="">Kode Asset*</label>
                                         <input type="text" class="form-control" id="kode_asset" name="kode_asset" placeholder="Kode Asset" required>
                                     </div>
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-3">
                                         <label for="">Type</label>
                                         <input type="text" class="form-control" id="type" name="type" placeholder="Type">
                                     </div>
-                                    <div class="form-group mb-1 col-2">
+                                    <div class="form-group mb-1 col-3">
                                         <label for="">Serial Number</label>
                                         <input type="text" class="form-control" id="serial_number" name="serial_number" placeholder="Serial Number">
                                     </div>
-                                    <div class="form-group mb-1 col-2">
-                                        <label for="">Satuan</label>
-                                        <select name="satuan" id="satuan" class="form-control">
-                                            <option value="" selected disabled>- Select Satuan - </option>
-                                            <option value="unit">Unit</option>
-                                            <option value="pcs">Pcs</option>
-                                            <option value="set">Set</option>
-                                            <option value="tower">Tower</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="form-group mb-1 col-3">
@@ -60,23 +51,40 @@
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
+                                    <div class="form-group col-3">
+                                        <label for="">User</label>
+                                        <input type="text" class="form-control" id="user" name="user" placeholder="User">
+                                    </div>
                                     <div class="form-group mb-1 col-3">
-                                        <label for="">Divisi*</label>
+                                        <label for="">Divisi/Department*</label>
                                         <select name="divisi" id="divisi" class="form-control" required>
                                             <option value="" selected disabled>- Select Divisi - </option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-2">
-                                        <label for="">User</label>
-                                        <input type="text" class="form-control" id="user" name="user" placeholder="User">
+                                    <div class="form-group mb-1 col-3">
+                                        <!-- blm di tambahkan -->
+                                        <label for="">Jabatan</label>
+                                        <input class="form-control" type="text" id="jabatan" name="jabatan" placeholder="Jabatan">
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="form-group mb-1 col-2">
-                                        <label for="">Lokasi</label>
-                                        <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="Lokasi">
+                                        <label for="">Satuan</label>
+                                        <select name="satuan" id="satuan" class="form-control">
+                                            <option value="" selected disabled>- Select Satuan - </option>
+                                            <option value="unit">Unit</option>
+                                            <option value="pcs">Pcs</option>
+                                            <option value="set">Set</option>
+                                            <option value="tower">Tower</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-3">
                                         <label for="">No PO</label>
                                         <input type="text" class="form-control" id="no_po" name="no_po" placeholder="No PO">
+                                    </div>
+                                    <div class="form-group mb-1 col-3">
+                                        <label for="">Lokasi</label>
+                                        <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="Lokasi">
                                     </div>
                                 </div>
 

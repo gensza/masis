@@ -33,14 +33,43 @@
                                             <label for="">Kode Asset*</label>
                                             <input type="text" class="form-control" id="kode_asset" name="kode_asset" value="<?= $a['kode_assets'] ?>" placeholder="Kode Asset" required>
                                         </div>
-                                        <div class="form-group col-2">
+                                        <div class="form-group col-3">
                                             <label for="">Type</label>
                                             <input type="text" class="form-control" id="type" name="type" value="<?= $a['type'] ?>" placeholder="Type">
                                         </div>
-                                        <div class="form-group mb-1 col-2">
+                                        <div class="form-group mb-1 col-3">
                                             <label for="">Serial Number</label>
                                             <input type="text" class="form-control" id="serial_number" name="serial_number" value="<?= $a['serial_number'] ?>" placeholder="Serial Number">
                                         </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group mb-1 col-3">
+                                            <label for="">PT*</label>
+                                            <select name="id_pt" id="id_pt" class="form-control" required>
+                                                <option value="<?= $a['id_pt'] ?>" selected><?= $a['id_pt'] ?>
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label for="">User</label>
+                                            <input type="text" class="form-control" id="user" name="user" value="<?= $a['user'] ?>" placeholder="User">
+                                        </div>
+                                        <div class="form-group mb-1 col-3">
+                                            <label for="">Divisi*</label>
+                                            <select name="divisi" id="divisi" class="form-control" required>
+                                                <option value="<?= $a['id_divisi'] ?>" selected><?= $a['id_divisi'] ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-1 col-3">
+                                            <!-- blm di tambahkan -->
+                                            <label for="">Jabatan</label>
+                                            <input class="form-control" type="text" id="jabatan" name="jabatan" value="<?= $a['jabatan'] ?>" placeholder="Jabatan">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
                                         <div class="form-group mb-1 col-2">
                                             <label for="">Satuan</label>
                                             <select name="satuan" id="satuan" class="form-control">
@@ -52,32 +81,13 @@
                                                 <option value="tower">Tower</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group mb-1 col-3">
-                                            <label for="">PT*</label>
-                                            <select name="id_pt" id="id_pt" class="form-control" required>
-                                                <option value="<?= $a['id_pt'] ?>" selected><?= $a['id_pt'] ?>
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group mb-1 col-3">
-                                            <label for="">Divisi*</label>
-                                            <select name="divisi" id="divisi" class="form-control" required>
-                                                <option value="<?= $a['id_divisi'] ?>" selected><?= $a['id_divisi'] ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-2">
-                                            <label for="">User</label>
-                                            <input type="text" class="form-control" id="user" name="user" value="<?= $a['user'] ?>" placeholder="User">
-                                        </div>
-                                        <div class="form-group mb-1 col-2">
-                                            <label for="">Lokasi</label>
-                                            <input type="text" class="form-control" id="lokasi" name="lokasi" value="<?= $a['lokasi'] ?>" placeholder="Lokasi">
-                                        </div>
-                                        <div class="form-group col-2">
+                                        <div class="form-group col-3">
                                             <label for="">No PO</label>
                                             <input type="text" class="form-control" id="no_po" name="no_po" value="<?= $a['no_po'] ?>" placeholder="No PO">
+                                        </div>
+                                        <div class="form-group mb-1 col-3">
+                                            <label for="">Lokasi</label>
+                                            <input type="text" class="form-control" id="lokasi" name="lokasi" value="<?= $a['lokasi'] ?>" placeholder="Lokasi">
                                         </div>
                                     </div>
 
