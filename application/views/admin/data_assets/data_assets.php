@@ -156,6 +156,7 @@
                             <button type="submit" class="btn btn-sm btn-danger" onclick="cetak_report()">Cetak Report</button>
                         </div>
                     </form>
+                    <button type="button" class="btn btn-sm btn-success mr-2" style="float: right;" onclick="cetak_excel()">Cetak Excel</button>
                 </div>
             </div>
         </div>
@@ -227,6 +228,13 @@
     <script>
         var table;
 
+        function cetak_excel() {
+            var url = '<?php echo base_url('DataAssets/cetakExcel'); ?>';
+
+            window.open(url);
+
+        }
+
         function cetak_report() {
             $('#modalReport').modal('hide');
         }
@@ -243,7 +251,7 @@
 
                 console.log(id_pt);
                 $.ajax({
-                    url: "<?php echo site_url('dataAssets/select_get_divisi'); ?>",
+                    url: "<?php echo site_url('DataAssets/select_get_divisi'); ?>",
                     method: "POST",
                     data: {
                         id_pt: id_pt
@@ -269,7 +277,7 @@
 
                 console.log(id_pt);
                 $.ajax({
-                    url: "<?php echo site_url('dataAssets/select_get_divisi'); ?>",
+                    url: "<?php echo site_url('DataAssets/select_get_divisi'); ?>",
                     method: "POST",
                     data: {
                         id_pt: id_pt

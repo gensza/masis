@@ -489,6 +489,47 @@ class DataAssets extends CI_Controller
         echo json_encode($output);
     }
 
+    public function get_no_urut_koset()
+    {
+        // MSAL/2112/A/PC/SITE/LP/0001
+        $query_ppo = "SELECT MAX(SUBSTRING(kode_assets, -4)) as max_urut from tb_assets";
+        $generate_ppo = $this->db->query($query_ppo)->row();
+        $noUrut = ($generate_ppo->max_urut);
+        $noUrut++;
+        $print = sprintf("%04s", $noUrut);
+
+        $pt = $this->session->userdata('app_pt');
+
+        $thn = substr(date('Y'), 2);
+        $bln = date('m');
+
+        $data = [
+            'no_urut' => $print,
+            'pt' => $pt,
+            'thn' => $thn,
+            'bln' => $bln,
+        ];
+
+        echo json_encode($data);
+    }
+
+    public function cetakExcel()
+    {
+        // table
+        $this->db->select('*');
+        $this->db->from('tb_assets');
+        $this->db->join('tb_qty_assets', 'tb_qty_assets.id_qty = tb_assets.qty_id', 'left');
+        $this->db->join('tb_pt', 'tb_pt.id_pt = tb_assets.id_pt', 'left');
+        $this->db->order_by('id_assets', 'DESC');
+        $data['data_assets'] = $this->db->get()->result_array();
+        // $data = '';
+        // var_dump($data['data_assets']);
+        // die;
+
+        //test
+        $this->load->view('admin/report_assets_excel', $data);
+    }
+
     // public function filterDataAssets()
     // {
     //     $data['title'] = 'Data Assets';
