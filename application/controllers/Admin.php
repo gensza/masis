@@ -39,9 +39,14 @@ class Admin extends CI_Controller
         $query = $this->db->get('tb_qty_assets');
         $data['qty'] = $query->row()->qty;
 
-        $this->db->select_sum('tersedia');
-        $query = $this->db->get('tb_qty_assets');
-        $data['tersedia'] = $query->row()->tersedia;
+        // $this->db->select_sum('tersedia');
+        // $query = $this->db->get('tb_assets');
+        // $data['terpakai'] = $query->row()->tersedia;
+
+        $this->db->where('idle !=', 'on');
+        $this->db->or_where('idle ', NULL);
+        $this->db->from('tb_assets');
+        $data['terpakai'] = $this->db->count_all_results();
 
         $this->db->where('kondisi', 0);
         $this->db->from('tb_assets');
