@@ -203,6 +203,10 @@
                                         <input type="checkbox" name="idle" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Idle?</label>
                                     </div>
+                                    <div class="custom-control custom-checkbox mt-4 col-1">
+                                        <input type="checkbox" name="non_aset" class="custom-control-input" id="customCheck2">
+                                        <label class="custom-control-label" for="customCheck2">Non&nbsp;Aset?</label>
+                                    </div>
                                 </div>
                                 <div class="row maintenance">
                                     <div class="form-group col-3">
