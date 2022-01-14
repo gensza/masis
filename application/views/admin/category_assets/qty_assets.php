@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-10 col-12">
+                <div class="col-lg-12 col-12">
                     <?= form_error('category', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="card">
@@ -27,10 +27,11 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Category</th>
-                                        <th>Total Assets</th>
-                                        <th>Asset Terpakai</th>
-                                        <th>Idle Assets</th>
-                                        <th>Asset Dipinjam</th>
+                                        <th>Total</th>
+                                        <th>Terpakai</th>
+                                        <th>Idle</th>
+                                        <th>Dipinjam</th>
+                                        <th>Rusak</th>
                                         <th>Opsi</th>
                                     </tr>
                                 </thead>
@@ -63,6 +64,14 @@
                                                 $count = $this->db->query($result)->row_array();
                                                 // var_dump($count);
                                                 echo $count['pinjam'];
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                $result = "SELECT COUNT(kondisi) as kondisi FROM tb_assets WHERE qty_id = $qty[id_qty] AND kondisi = 0";
+                                                $count = $this->db->query($result)->row_array();
+                                                // var_dump($count);
+                                                echo $count['kondisi'];
                                                 ?>
                                             </td>
                                             <td>

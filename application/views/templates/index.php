@@ -243,10 +243,11 @@
                                 <tr>
                                     <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Category
                                     </th>
-                                    <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Qty</th>
+                                    <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Total</th>
                                     <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Terpakai</th>
-                                    <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Idle Assets</th>
-                                    <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Asset Dipinjam</th>
+                                    <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Idle</th>
+                                    <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Dipinjam</th>
+                                    <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Rusak</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -278,6 +279,14 @@
                                             $count = $this->db->query($result)->row_array();
                                             // var_dump($count);
                                             echo $count['pinjam'];
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            $result = "SELECT COUNT(kondisi) as kondisi FROM tb_assets WHERE qty_id = $q[id_qty] AND kondisi = 0";
+                                            $count = $this->db->query($result)->row_array();
+                                            // var_dump($count);
+                                            echo $count['kondisi'];
                                             ?>
                                         </td>
                                     </tr>
