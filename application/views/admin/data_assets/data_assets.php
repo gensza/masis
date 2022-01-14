@@ -43,6 +43,7 @@
                                         <th>User</th>
                                         <th>Kondisi</th>
                                         <th>Status</th>
+                                        <th>QR-CODE</th>
                                         <th width="150px">Opsi</th>
                                     </tr>
                                 </thead>
@@ -156,6 +157,7 @@
                             <button type="submit" class="btn btn-sm btn-danger" onclick="cetak_report()">Cetak Report</button>
                         </div>
                     </form>
+                    <button type="button" class="btn btn-sm btn-warning mr-2" style="float: right;" onclick="cetak_qrcode()">Cetak QR-Code</button>
                     <button type="button" class="btn btn-sm btn-success mr-2" style="float: right;" onclick="cetak_excel()">Cetak Excel</button>
                 </div>
             </div>
@@ -230,6 +232,13 @@
 
         function cetak_excel() {
             var url = '<?php echo base_url('DataAssets/cetakExcel'); ?>';
+
+            window.open(url);
+
+        }
+
+        function cetak_qrcode() {
+            var url = '<?php echo base_url('DataAssets/cetak_qrcode'); ?>';
 
             window.open(url);
 

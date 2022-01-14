@@ -192,9 +192,41 @@ class DataAssets extends CI_Controller
                 $this->db->where('id_qty', $data['qty_id']);
                 $this->db->update('tb_qty_assets');
             }
+
+            // buat qrcode
+            // $this->qrcode($data['kode_assets']);
+
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New assets added!</div>');
             redirect('DataAssets');
         }
+    }
+
+    function qrcode($koset)
+    {
+        $this->load->library('Ciqrcode');
+        // header("Content-Type: image/png");
+
+        $query = "SELECT MAX(id_assets) as id FROM tb_assets WHERE kode_assets = '$koset'";
+        $result = $this->db->query($query)->row();
+
+        $config['cacheable']    = false; //boolean, the default is true
+        $config['cachedir']     = './assets/'; //string, the default is application/cache/
+        $config['errorlog']     = './assets/'; //string, the default is application/logs/
+        $config['imagedir']     = './assets/qrcode/data_asset/'; //direktori penyimpanan qr code
+        $config['quality']      = true; //boolean, the default is true
+        $config['size']         = '1024'; //interger, the default is 1024
+        $config['black']        = array(224, 255, 255); // array, default is array(255,255,255)
+        $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
+        $this->ciqrcode->initialize($config);
+
+        $image_name = $result->id . '.png'; //buat name dari qr code
+
+        // $params['data'] = site_url('lpb/cetak/'.$no_lpb.'/'.$id); //data yang akan di jadikan QR CODE
+        $params['data'] = $koset; //data yang akan di jadikan QR CODE
+        $params['level'] = 'H'; //H=High
+        $params['size'] = 10;
+        $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder
+        $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
     }
 
     public function editAssets($id)
@@ -414,6 +446,32 @@ class DataAssets extends CI_Controller
         $dompdf->stream('Assets-report.pdf', array('Attachment' => false));
     }
 
+    public function cetak_qrcode()
+    {
+        $dompdf = new Dompdf();
+
+        // table
+        $this->db->select('tb_assets.id_assets, tb_assets.kode_assets, tb_qty_assets.category, tb_assets.serial_number, tb_assets.merk, tb_assets.lokasi');
+        $this->db->join('tb_qty_assets', 'tb_qty_assets.id_qty = tb_assets.qty_id', 'left');
+        $this->db->from('tb_assets');
+        // $this->db->where('id_assets <', 100);
+        $this->db->order_by('id_assets', 'DESC');
+        $data['data_assets'] = $this->db->get()->result_array();
+
+        foreach ($data['data_assets'] as $d) {
+            $this->qrcode($d['kode_assets']);
+            // echo $d['id_assets'];
+        }
+
+        //test
+        $html = $this->load->view('admin/report_assets_qrcode', $data, true);
+        $dompdf->load_html($html);
+        $dompdf->set_paper('A4', 'Potrait');
+        $dompdf->render();
+        $dompdf->output();
+        $dompdf->stream('Assets-report.pdf', array('Attachment' => false));
+    }
+
     function get_data_assets()
     {
         $list = $this->M_data_assets->get_datatables();
@@ -476,6 +534,7 @@ class DataAssets extends CI_Controller
             $row[] = $field->user;
             $row[] = $kondisi;
             $row[] = $status;
+            $row[] = '<p><img style="width: 70px;" src="./assets/qrcode/data_asset/' . $field->id_assets . '.png"></p>';
             $row[] = $aksi;
 
             $data[] = $row;
